@@ -3,6 +3,8 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <chrono>
+#include <thread>
 
 namespace Game {
 	enum Object {
@@ -418,6 +420,8 @@ int main() {
 		glfwSwapBuffers(window);
 
 		glfwPollEvents();
+
+		std::this_thread::sleep_for(std::chrono::duration<double>(1.0 / 240.0)); // Helps slow the game down so it doesn't run at an unplayable speed
 	}
 
 	// optionally delete VAO, VBO and shader program
